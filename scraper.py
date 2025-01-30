@@ -3,6 +3,16 @@ import smtplib
 import time
 import logging
 import os
+import os
+from dotenv import load_dotenv
+
+# Ladda miljövariabler endast om .env-filen finns
+if os.path.exists(".env"):
+    load_dotenv()
+
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
